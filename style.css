@@ -52,22 +52,38 @@ a {
     z-index: 1000;
 }
 
+/* ===============================
+   CIRCULAR LOGO
+================================ */
+
 .logo {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    line-height: 0.9;
-    letter-spacing: 3px;
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    transition: transform 0.3s ease;
 }
 
-.logo span {
-    font-size: 10px;
-    letter-spacing: 5px;
-    color: #b9a37a;
+.logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
 }
 
-.logo strong {
-    font-size: 22px;
+.logo:hover {
+    transform: scale(1.08);
 }
 
 .navbar nav {
@@ -221,7 +237,7 @@ a {
 }
 
 .hero h1 {
-    font-size: clamp(50px, 6vw, 88px);
+    font-size: clamp(30px, 4.5vw, 80px);
 
     line-height: 0.9;
 
@@ -392,86 +408,39 @@ a {
     box-shadow: 10px 12px 0 #29231c;
 }
 
-.document {
+
+.story-image {
     position: relative;
 
-    width: 65%;
-    min-height: 280px;
+    width: 100%;
+    min-height: 430px;
 
-    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    background: #e9dfc8;
+    background: #c7bca8;
 
-    color: #29241c;
+    overflow: hidden;
 
-    transform: rotate(-3deg);
-
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    box-shadow: 10px 12px 0 #29231c;
 }
 
-.document > p {
-    font-family: Arial, sans-serif;
+.story-image img {
+    width: 100%;
+    height: 100%;
 
-    font-size: 9px;
+    max-height: 500px;
 
-    letter-spacing: 3px;
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.5s ease;
 }
 
-.document h3 {
-    margin-top: 15px;
-
-    font-size: 20px;
-}
-
-.fake-lines {
-    width: 80%;
-    height: 6px;
-
-    margin-top: 30px;
-
-    background: #b6aa94;
-}
-
-.fake-lines.short {
-    width: 50%;
-    margin-top: 10px;
-}
-
-.question-mark {
-    position: absolute;
-
-    right: 30px;
-    bottom: 20px;
-
-    font-size: 90px;
-
-    color: #9f8050;
-
-    opacity: 0.4;
-}
-
-.case-stamp {
-    position: absolute;
-
-    right: 15%;
-    top: 15%;
-
-    padding: 10px 20px;
-
-    border: 3px solid #963d32;
-
-    color: #963d32;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 13px;
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    transform: rotate(15deg);
-
-    z-index: 5;
+.story-image:hover img {
+    transform: scale(1.03);
 }
 
 .story-text .eyebrow {
@@ -544,31 +513,30 @@ a {
 }
 
 .character-image {
-    height: 280px;
+    width: 100%;
+    height: 320px;
 
-    display: flex;
-    flex-direction: column;
+    overflow: hidden;
 
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle,
-            #4a453e,
-            #181714
-        );
-
-    border-bottom: 1px solid #3d372f;
+    background: #211C16;
 }
 
-.character-image span {
-    font-family: Arial, sans-serif;
+.character-image img {
+    width: 100%;
+    height: 100%;
 
-    font-size: 9px;
-    letter-spacing: 4px;
+    display: block;
 
-    color: #8f877b;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* Hover effect */
+
+.character-card:hover .character-image img {
+    transform: scale(1.05);
 }
 
 .character-symbol {
@@ -609,6 +577,101 @@ a {
     color: #a8a097;
 }
 
+/* =====================================================
+   SUSPECTS
+===================================================== */
+
+.suspects {
+    background: #eee8dc;
+    color: #211c16;
+}
+
+.suspect-intro {
+    max-width: 600px;
+    margin: -25px auto 55px;
+    text-align: center;
+}
+
+.suspect-intro h3 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.suspect-intro p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #756c60;
+}
+
+.suspect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.suspect-card {
+    position: relative;
+    background: #f5efe3;
+    border: 1px solid #c8bba5;
+    box-shadow: 5px 7px 0 #c5b8a3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.suspect-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 8px 14px 0 #b5a78f;
+}
+
+.suspect-photo {
+    position: relative;
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    background: #211c16;
+}
+
+.suspect-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: grayscale(15%);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.suspect-card:hover .suspect-photo img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.suspect-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 7px 12px;
+    background: #211c16;
+    color: #d7ad55;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.suspect-info {
+    padding: 22px 25px 25px;
+}
+
+.suspect-info h3 {
+    margin-bottom: 8px;
+    font-size: 25px;
+}
+
+.suspect-role {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #a17b43;
+}
 
 /* =====================================================
    MISSION
@@ -767,7 +830,7 @@ footer p {
 .copyright {
     margin-top: 15px;
 
-    font-size: 9px;
+    font-size: 13px;
 }
 
 
@@ -945,4 +1008,103 @@ footer p {
         width: 75%;
     }
 
+}
+
+@media (max-width: 768px) {
+
+    .suspects {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .suspect-intro {
+        margin: -10px auto 35px;
+        max-width: 500px;
+    }
+
+    .suspect-intro h3 {
+        font-size: 25px;
+    }
+
+    .suspect-intro p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .suspect-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .suspect-card {
+        width: 100%;
+    }
+
+    .suspect-photo {
+        height: 360px;
+    }
+
+    .suspect-info {
+        padding: 20px 22px 23px;
+    }
+
+    .suspect-info h3 {
+        font-size: 23px;
+    }
+
+    .suspect-role {
+        font-size: 8px;
+        letter-spacing: 2.5px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .suspects {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .suspect-intro {
+        margin-bottom: 30px;
+    }
+
+    .suspect-intro h3 {
+        font-size: 23px;
+    }
+
+    .suspect-intro p {
+        font-size: 11px;
+    }
+
+    .suspect-grid {
+        gap: 20px;
+    }
+
+    .suspect-photo {
+        height: 300px;
+    }
+
+    .suspect-number {
+        top: 12px;
+        left: 12px;
+        padding: 6px 10px;
+        font-size: 7px;
+    }
+
+    .suspect-info {
+        padding: 18px 20px 20px;
+    }
+
+    .suspect-info h3 {
+        font-size: 21px;
+    }
+
+    .suspect-role {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
 }

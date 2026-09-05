@@ -24,6 +24,23 @@ navLinks.forEach(link => {
 
 });
 
+/* =====================================================
+   AUDIO BUTTON
+===================================================== */
+const video = document.querySelector(".hero-video");
+const soundButton = document.getElementById("soundButton");
+
+soundButton.addEventListener("click", () => {
+
+    video.muted = !video.muted;
+
+    if (video.muted) {
+        soundButton.textContent = "🔇";
+    } else {
+        soundButton.textContent = "🔊";
+    }
+
+});
 
 /* =====================================================
    PLAY BUTTON
